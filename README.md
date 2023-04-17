@@ -1,1 +1,1 @@
-#DSA solved in java and pyhton
+#DSA solved in java and python
