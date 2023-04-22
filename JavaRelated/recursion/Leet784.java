@@ -16,14 +16,11 @@ class Leet784 {
             return;
         }
         if (Character.isLowerCase(suffix.charAt(0))) {
-            spacePermuteHelper(prefix + suffix.charAt(0), suffix.substring(1), res);
             spacePermuteHelper(prefix + Character.toUpperCase(suffix.charAt(0)), suffix.substring(1), res);
         } else if (Character.isUpperCase(suffix.charAt(0))) {
-            spacePermuteHelper(prefix + suffix.charAt(0), suffix.substring(1), res);
             spacePermuteHelper(prefix + Character.toLowerCase(suffix.charAt(0)), suffix.substring(1), res);
-        } else {
-            spacePermuteHelper(prefix + suffix.charAt(0), suffix.substring(1), res);
         }
+        spacePermuteHelper(prefix + suffix.charAt(0), suffix.substring(1), res);
         return;
     }
 
