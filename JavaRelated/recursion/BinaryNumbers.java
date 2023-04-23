@@ -6,9 +6,7 @@ public class BinaryNumbers {
             System.out.print(output + " ");
             return;
         }
-
         generate(n - 1, ones + 1, zeroes, output + "1");
-
         if (ones > zeroes) {
             generate(n - 1, ones, zeroes + 1, output + "0");
         }
