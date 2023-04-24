@@ -21,26 +21,23 @@ public class MergeSort {
     public static void merge(int[] arr, int start, int mid, int end) {
         int i = start;
         int j = mid + 1;
-        int k = start;
+        int k = 0;
+        int[] tmp = new int[end - start + 1];
         while (i <= mid && j <= end) {
             if (arr[i] <= arr[j]) {
-                arr[k] = arr[i];
-                i++;
+                tmp[k++] = arr[i++];
             } else {
-                arr[k] = arr[j];
-                j++;
+                tmp[k++] = arr[j++];
             }
-            k++;
         }
         while (i <= mid) {
-            arr[k] = arr[i];
-            i++;
-            k++;
+            arr[k++] = arr[i++];
         }
         while (j <= end) {
-            arr[k] = arr[j];
-            j++;
-            k++;
+            arr[k++] = arr[j++];
+        }
+        for (int l = 0; l < tmp.length; l++) {
+            arr[start + l] = tmp[l];
         }
     }
 
