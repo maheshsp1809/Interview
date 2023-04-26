@@ -28,10 +28,15 @@ public class recsort {
             list.add(temp);
             return;
         }
-        int val = list.get(list.size() - 1);
-        list.remove(list.size() - 1);
-        insert(list, temp);
-        list.add(val);
+        for (int i = list.size() - 2; i >= 0; i--) {
+            int val = list.get(i);
+            if (val <= temp) {
+                list.add(i + 1, temp);
+                return;
+            }
+            list.set(i + 1, val);
+        }
+        list.set(0, temp);
     }
 
 }
