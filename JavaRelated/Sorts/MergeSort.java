@@ -25,16 +25,23 @@ public class MergeSort {
         int[] tmp = new int[end - start + 1];
         while (i <= mid && j <= end) {
             if (arr[i] <= arr[j]) {
-                tmp[k++] = arr[i++];
+                tmp[k] = arr[i];
+                i++;
             } else {
-                tmp[k++] = arr[j++];
+                tmp[k] = arr[j];
+                j++;
             }
+            k++;
         }
         while (i <= mid) {
-            arr[k++] = arr[i++];
+            tmp[k] = arr[i];
+            i++;
+            k++;
         }
         while (j <= end) {
-            arr[k++] = arr[j++];
+            tmp[k] = arr[j];
+            j++;
+            k++;
         }
         for (int l = 0; l < tmp.length; l++) {
             arr[start + l] = tmp[l];
