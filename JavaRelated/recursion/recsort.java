@@ -23,7 +23,7 @@ public class recsort {
         insert(list, temp);
     }
 
-    public static void insert(List<Integer> list, int temp) {
+    public static void insert1(List<Integer> list, int temp) {
         if (list.isEmpty() || list.get(list.size() - 1) <= temp) {
             list.add(temp);
             return;
