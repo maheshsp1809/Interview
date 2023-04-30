@@ -30,8 +30,8 @@ class Solution {
     }
 
     public static void main(String[] args) {
-        int[] wt = { 10, 20, 30 };
-        int[] val = { 60, 100, 120 };
+        int[] wt = { 10, 20, 19, 25, 30 };
+        int[] val = { 60, 100, 200, 220, 120 };
         int W = 50;
         int n = wt.length;
         int maxVal = knapSack(W, wt, val, n);
