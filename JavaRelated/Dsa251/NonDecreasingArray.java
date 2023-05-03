@@ -24,7 +24,7 @@ public class NonDecreasingArray {
     }
 
     public static void main(String[] args) {
-        int[] nums = { 4, 2, 3 };
+        int nums[] = { 4, 2, 3 };
         boolean result = checkPossibility(nums);
         System.out.println("Input: " + Arrays.toString(nums) + " Output: " + result);
 
