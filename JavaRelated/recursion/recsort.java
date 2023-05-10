@@ -6,7 +6,7 @@ import java.util.List;
 
 public class recsort {
     public static void main(String[] args) {
-        List<Integer> list = new ArrayList<>(Arrays.asList(5, 0, 1, 2));
+        List<Integer> list = new ArrayList<>(Arrays.asList(5, 0, 1, 2, -1));
         sort(list);
         for (int i = 0; i < list.size(); i++) {
             System.out.println(list.get(i));
@@ -14,13 +14,13 @@ public class recsort {
     }
 
     public static void sort(List<Integer> list) {
-        if (list.size() == 1) {
+        if (list.size() == 0) {
             return;
         }
         int temp = list.get(list.size() - 1);
         list.remove(list.size() - 1);
         sort(list);
-        insert(list, temp);
+        insert1(list, temp);
     }
 
     public static void insert1(List<Integer> list, int temp) {
@@ -28,15 +28,10 @@ public class recsort {
             list.add(temp);
             return;
         }
-        for (int i = list.size() - 2; i >= 0; i--) {
-            int val = list.get(i);
-            if (val <= temp) {
-                list.add(i + 1, temp);
-                return;
-            }
-            list.set(i + 1, val);
-        }
-        list.set(0, temp);
+        int lastVal = list.get(list.size() - 1);
+        list.remove(list.size() - 1);
+        insert1(list, temp);
+        list.add(lastVal);
     }
 
 }
