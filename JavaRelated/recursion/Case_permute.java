@@ -16,7 +16,7 @@ public class Case_permute {
     }
 
     public static void main(String[] args) {
-        String str = "ab";
+        String str = "abc";
         spacePermute(str);
     }
 }
