@@ -1,6 +1,11 @@
 package javacodes;
 
 public class MissingAndDuplicate {
+        // This is a Java method that takes in an integer array `nums` and an integer `nt` as
+        // parameters. It finds the two elements in the array `nums` that are missing and duplicate in
+        // the range of 1 to `nt`. It uses XOR operations to calculate the missing and duplicate
+        // elements. The method returns an integer array of size 2 containing the missing and duplicate
+        // elements.
         int[] findTwoElement(int nums[], int nt) {
         int n = nums.length;
         int xor = 0;

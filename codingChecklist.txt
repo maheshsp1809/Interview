@@ -1,0 +1,11 @@
+try using short and crisp variables.
+EXAMS OR INTERVIEWS ALSO LOOK AT THE TIME OF SUBMISSION ALONG WITH CORRECT SUBMISSIONS
+speed is important so as typing
+divide the problems into modules
+base cases 
+think about optimal sol on paper then start to code
+all methods and tricks should be at your fingertips
+try doing difficult questions dialy
+try knowing java syntax in depth
+fight with difficult questions
+reading fast has to be a habbit
