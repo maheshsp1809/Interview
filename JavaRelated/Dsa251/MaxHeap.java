@@ -2,12 +2,12 @@ package Dsa251;
 
 import java.util.Arrays;
 
-public class MinHeap {
+public class MaxHeap {
     private int capacity;
     private int size;
     private int[] heap;
- 
-    public MinHeap(int capacity) {
+
+    public MaxHeap(int capacity) {
         this.capacity = capacity;
         this.size = 0;
         this.heap = new int[capacity];
@@ -54,20 +54,20 @@ public class MinHeap {
         heapifyUp(size - 1);
     }
 
-    public int extractMin() {
+    public int extractMax() {
         if (size == 0) {
             throw new IllegalStateException("Heap is empty");
         }
 
-        int min = heap[0];
+        int max = heap[0];
         heap[0] = heap[size - 1];
         size--;
         heapifyDown(0);
-        return min;
+        return max;
     }
 
     private void heapifyUp(int index) {
-        while (hasParent(index) && heap[index] < heap[getParentIndex(index)]) {
+        while (hasParent(index) && heap[index] > heap[getParentIndex(index)]) {
             swap(index, getParentIndex(index));
             index = getParentIndex(index);
         }
@@ -75,18 +75,18 @@ public class MinHeap {
 
     private void heapifyDown(int index) {
         while (hasLeftChild(index)) {
-            int smallerChildIndex = getLeftChildIndex(index);
-            if (hasRightChild(index) && heap[getRightChildIndex(index)] < heap[smallerChildIndex]) {
-                smallerChildIndex = getRightChildIndex(index);
+            int largerChildIndex = getLeftChildIndex(index);
+            if (hasRightChild(index) && heap[getRightChildIndex(index)] > heap[largerChildIndex]) {
+                largerChildIndex = getRightChildIndex(index);
             }
 
-            if (heap[index] < heap[smallerChildIndex]) {
+            if (heap[index] > heap[largerChildIndex]) {
                 break;
             } else {
-                swap(index, smallerChildIndex);
+                swap(index, largerChildIndex);
             }
 
-            index = smallerChildIndex;
+            index = largerChildIndex;
         }
     }
 
@@ -96,17 +96,17 @@ public class MinHeap {
     }
 
     public static void main(String[] args) {
-        MinHeap minHeap = new MinHeap(10);
-        minHeap.insert(4);
-        minHeap.insert(8);
-        minHeap.insert(2);
-        minHeap.insert(7);
-        minHeap.insert(5);
+        MaxHeap maxHeap = new MaxHeap(10);
+        maxHeap.insert(4);
+        maxHeap.insert(8);
+        maxHeap.insert(2);
+        maxHeap.insert(7);
+        maxHeap.insert(5);
 
-        System.out.println("MinHeap: " + minHeap);
+        System.out.println("MaxHeap: " + maxHeap);
 
-        int min = minHeap.extractMin();
-        System.out.println("Extracted Min: " + min);
-        System.out.println("MinHeap after extraction: " + minHeap);
+        int max = maxHeap.extractMax();
+        System.out.println("Extracted Max: " + max);
+        System.out.println("MaxHeap after extraction: " + maxHeap);
     }
 }
