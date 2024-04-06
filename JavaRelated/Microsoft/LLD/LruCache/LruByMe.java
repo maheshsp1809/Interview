@@ -1,17 +1,27 @@
 package LLD.LruCache;
 
-import java.util.HashMap;
+import java.util.*;
 
-// Node class for the DoublyLinkedList
+public class LruByMe {
+    public static class Node {
+        int key;
+        int value;
+        Node prev;
+        Node next;
 
-// LRUCache class
-class LRUCache {
+        Node(int key, int value) {
+            this.key = key;
+            this.value = value;
+        }
+
+    }
+
     private int capacity;
     private HashMap<Integer, Node> map;
     private Node head;
     private Node tail;
 
-    public LRUCache(int capacity) {
+    public LruByMe(int capacity) {
         this.capacity = capacity;
         map = new HashMap<>();
         head = new Node(-1, -1);
@@ -42,6 +52,7 @@ class LRUCache {
         Node newNode = new Node(key, value);
         addToHead(newNode);
         map.put(key, newNode);
+
     }
 
     private void removeNode(Node node) {
@@ -49,6 +60,7 @@ class LRUCache {
         Node next = node.next;
         prev.next = next;
         next.prev = prev;
+
     }
 
     private void addToHead(Node node) {
@@ -57,6 +69,7 @@ class LRUCache {
         node.next = next;
         head.next = node;
         next.prev = node;
+
     }
 
     public static void main(String[] args) {
@@ -77,4 +90,5 @@ class LRUCache {
 
         // Output: -1 (2 was evicted)
     }
+
 }
