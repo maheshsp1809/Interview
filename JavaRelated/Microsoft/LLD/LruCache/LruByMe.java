@@ -3,23 +3,10 @@ package LLD.LruCache;
 import java.util.*;
 
 public class LruByMe {
-    public static class Node {
-        int key;
-        int value;
-        Node prev;
-        Node next;
-
-        Node(int key, int value) {
-            this.key = key;
-            this.value = value;
-        }
-
-    }
-
-    private int capacity;
-    private HashMap<Integer, Node> map;
-    private Node head;
-    private Node tail;
+    int capacity;
+    Map<Integer, Node> map;
+    Node head;
+    Node tail;
 
     public LruByMe(int capacity) {
         this.capacity = capacity;
@@ -30,17 +17,18 @@ public class LruByMe {
         tail.prev = head;
     }
 
-    public int get(int key) {
+    public int getValueFortheKey(int key) {
         if (map.containsKey(key)) {
-            Node node = map.get(key);
-            removeNode(node);
-            addToHead(node);
-            return node.value;
+            Node nodeToBeGot = map.get(key);
+            removeNode(nodeToBeGot);
+            addToHead(nodeToBeGot);
+            return nodeToBeGot.value;
+
         }
         return -1;
     }
 
-    public void put(int key, int value) {
+    public void putKeyValueToCache(int key, int value) {
         if (map.containsKey(key)) {
             removeNode(map.get(key));
         }
@@ -48,47 +36,54 @@ public class LruByMe {
             Node toRemove = tail.prev;
             removeNode(toRemove);
             map.remove(toRemove.key);
+
         }
-        Node newNode = new Node(key, value);
-        addToHead(newNode);
-        map.put(key, newNode);
+        Node newNodeToBeAddedToCache = new Node(key, value);
+        addToHead(newNodeToBeAddedToCache);
+        map.put(key, newNodeToBeAddedToCache);
 
     }
 
-    private void removeNode(Node node) {
-        Node prev = node.prev;
-        Node next = node.next;
+    public void removeNode(Node nodetoBeRemovedFromCache) {
+        Node next = nodetoBeRemovedFromCache.next;
+        Node prev = nodetoBeRemovedFromCache.prev;
         prev.next = next;
         next.prev = prev;
 
     }
 
-    private void addToHead(Node node) {
+    public void addToHead(Node nodeToBeAdded) {
         Node next = head.next;
-        node.prev = head;
-        node.next = next;
-        head.next = node;
-        next.prev = node;
+        next.prev = nodeToBeAdded;
+        nodeToBeAdded.next = next;
+        head.next = nodeToBeAdded;
+        nodeToBeAdded.prev = head;
 
     }
 
     public static void main(String[] args) {
-        LRUCache cache = new LRUCache(3);
+        LruByMe cache = new LruByMe(3);
+        cache.putKeyValueToCache(1, 10);
+        cache.putKeyValueToCache(2, 20);
+        cache.putKeyValueToCache(3, 30);
+        System.out.println("Get value for key 1:" + cache.getValueFortheKey(1));
+        cache.putKeyValueToCache(4, 40);
+        cache.putKeyValueToCache(7, 70);
+        System.out.println("Value for key 2: " + cache.getValueFortheKey(3));
 
-        cache.put(1, 10);
-        cache.put(2, 20);
-        cache.put(3, 30);
-        System.out.println("Value for key 1: " + cache.get(1)); // Output: 10
-        cache.put(4, 40);
-        System.out.println("Value for key 2: " + cache.get(2));
-        cache.put(5, 50);
-        System.out.println("Value for key 2: " + cache.get(3));
-        cache.put(6, 60);
-        System.out.println("Value for key 2: " + cache.get(3));
-        cache.put(7, 70);
-        System.out.println("Value for key 2: " + cache.get(3));
-
-        // Output: -1 (2 was evicted)
     }
 
+    public static class Node {
+        int key;
+        int value;
+        Node prev;
+        Node next;
+
+        public Node(int key, int value) {
+            this.key = key;
+            this.value = value;
+
+        }
+
+    }
 }
