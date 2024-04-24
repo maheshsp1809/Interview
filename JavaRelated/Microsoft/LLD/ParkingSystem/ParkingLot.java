@@ -1,4 +1,4 @@
-package Microsoft.LLD.ParkingSystem;
+package LLD.ParkingSystem;
 
 import java.util.ArrayList;
 import java.util.List;

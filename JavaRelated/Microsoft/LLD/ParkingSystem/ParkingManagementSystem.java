@@ -1,4 +1,4 @@
-package Microsoft.LLD.ParkingSystem;
+package LLD.ParkingSystem;
 
 import java.util.HashMap;
 import java.util.Map;

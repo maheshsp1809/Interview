@@ -1,4 +1,4 @@
-package Microsoft.LLD.ParkingSystem;
+package LLD.ParkingSystem;
 
 public class Main {
     public static void main(String[] args) {
