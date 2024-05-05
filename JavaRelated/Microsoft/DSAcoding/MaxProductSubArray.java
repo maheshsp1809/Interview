@@ -2,7 +2,7 @@ package DSAcoding;
 
 public class MaxProductSubarray {
     public static void main(String[] args) {
-        Solution solution = new Solution();
+        PhoneNumber solution = new PhoneNumber();
 
         // Test cases
         int[] nums1 = { 2, 3, -2, 4 };

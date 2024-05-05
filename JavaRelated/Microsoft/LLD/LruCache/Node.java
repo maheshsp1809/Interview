@@ -1,13 +1,13 @@
-// package LLD.LruCache;
+package LLD.LruCache;
 
-// class Node {
-// int key;
-// int value;
-// Node prev;
-// Node next;
+class Node {
+    int key;
+    int value;
+    Node prev;
+    Node next;
 
-// Node(int key, int value) {
-// this.key = key;
-// this.value = value;
-// }
-// }
+    Node(int key, int value) {
+        this.key = key;
+        this.value = value;
+    }
+}
