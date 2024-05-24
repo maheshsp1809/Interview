@@ -1,6 +1,6 @@
 package DP;
 
-public class MinimumSubset {
+public class Solution {
     public static int minSubsetSumDifference(int[] arr, int n) {
         // Write your code here.
         int sum = 0;
@@ -12,14 +12,11 @@ public class MinimumSubset {
 
     public static int tab(int[] arr, int n, int target) {
         boolean[][] dp = new boolean[n][target + 1];
-        for (int i = 0; i < n; ++i) {
+        for (int i = 0; i < n; ++i)
             dp[i][0] = true;
-        }
-        for (int i = 1; i <= target; ++i) {
-            if (arr[0] == i) {
-                dp[0][i] = true;
-            }
-        }
+        if (arr[0] <= target)
+            dp[0][arr[0]] = true;
+
         for (int i = 1; i < n; ++i) {
             for (int j = 1; j <= target; ++j) {
                 boolean take = false;
@@ -30,20 +27,22 @@ public class MinimumSubset {
                 dp[i][j] = take || ntake;
             }
         }
-        int ind = -1;
-        for (int i = target / 2; i >= 0; --i) {
-            if (dp[n - 1][i] == true) {
-                ind = i;
-                break;
+        int mini = Integer.MAX_VALUE;
+
+        // Find the minimum absolute difference between two subsets
+        for (int i = target; i >= 0; i--) {
+            if (dp[n - 1][i]) {
+                System.out.println(dp[n - 1][26]);
+                int diff = Math.abs(i - (target - i));
+                mini = Math.min(mini, diff);
             }
         }
-        int mid = target - ind;
-        int ans = Math.abs(ind - mid);
-        return ans;
+        return mini;
+
     }
 
     public static void main(String[] args) {
-        int[] arr = { 6, 14, 14, 14, 10, 15, 2 };
+        int[] arr = { 14, 14, 14, 10, 15, 2 };
         int n = arr.length;
         System.out.println(minSubsetSumDifference(arr, n));
     }
