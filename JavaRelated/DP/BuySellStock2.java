@@ -13,12 +13,31 @@ public class BuySellStock2 {
         // Calculate the maximum profit using the recursive method
         long ans = recm(0, 1, values, dp);
 
-        // Print dp array for debugging (optional)
         for (long[] row : dp) {
             System.out.println(Arrays.toString(row));
         }
 
-        return ans;
+        // return ans;
+        return tab(values, n);
+    }
+
+    public static long tab(long[] values, int n) {
+        long[][] dp = new long[n + 1][2];
+        for (int i = n - 2; i >= 0; i--) {
+            for (int buy = 0; buy <= 1; buy++) {
+                if (buy == 1) {
+                    // Choice to buy or not buy
+                    dp[i][buy] = Math.max(-values[i] + dp[i + 1][0], dp[i + 1][1]);
+                } else {
+                    // Choice to sell or not sell
+                    dp[i][buy] = Math.max(values[i] + dp[i + 1][1], dp[i + 1][0]);
+                }
+            }
+        }
+        for (long[] row : dp) {
+            System.out.println(Arrays.toString(row));
+        }
+        return dp[0][1];
     }
 
     public static long recm(int i, int buy, long[] values, long[][] dp) {
@@ -41,8 +60,8 @@ public class BuySellStock2 {
     public static void main(String[] args) {
         // Test case: 7, 1, 5, 3, 6, 4
         long[] values = { 7, 1, 5, 3, 6, 4 };
+        // long[] values = { 1, 2, 3, 4, 5, 6, 0 };
         int n = values.length;
-
         // Calculate and print the maximum profit
         long maxProfit = getMaximumProfit(n, values);
         System.out.println("Maximum Profit: " + maxProfit);
