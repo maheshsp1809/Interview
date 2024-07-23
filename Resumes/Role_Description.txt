@@ -1,0 +1,9 @@
+Certainly! Here are the role descriptions for both your Software Development Engineer-1 and Software Engineer Intern experiences, tailored to the job description provided:
+
+### Software Development Engineer-1 at IBM Apptio (September 2022 – March 2023)
+
+In my role as a Software Development Engineer-1 at IBM Apptio, I significantly contributed to the development and enhancement of the Integrated Investment Planning module and the Activity Tracking Module for Vanguard Applications. My responsibilities included resolving critical bugs and developing new features using Spring Boot and AWS services, ensuring high reliability and availability of key systems. I optimized MySQL database queries, which led to a 15% reduction in page load times and improved overall application performance. Additionally, I implemented numerous UI features using React, achieving a 10% increase in client engagement rates through A/B testing. These efforts were aligned with the dynamic needs of the organization, showcasing my ability to deliver high-quality, scalable solutions in a fast-paced environment.
+
+### Software Engineer Intern at IBM Apptio (March 2022 – July 2022)
+
+As a Software Engineer Intern at IBM Apptio, I played a vital role in performance optimization and automation within the Van-plat team. My contributions included enhancing router stories and automating deployment tasks, which streamlined our processes and increased efficiency. I developed comprehensive test cases and conducted extensive debugging to ensure robust coverage and reliability of the ITP application, addressing both backend and frontend issues. This experience allowed me to work collaboratively with technical experts, deepen my understanding of software development life cycle, and cultivate a strong foundation in Agile methodology and continuous integration practices.
